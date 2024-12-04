@@ -1,7 +1,7 @@
 from ui.login import Ui_Dialog
 from PySide6.QtWidgets import QDialog,QLabel
 from PySide6.QtCore import QRect,QCoreApplication,Slot
-from PySide6.QtGui import QPixmap
+from PySide6.QtGui import QPixmap,Qt
 
 from main.tools import loginButton
 
@@ -12,6 +12,7 @@ class Login(QDialog):
         super().__init__(parent)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+
         self.setWindowTitle("登录")
         self.register = loginButton(self)
         self.background = QLabel(self)

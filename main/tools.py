@@ -1,12 +1,23 @@
 # This Python file uses the following encoding: utf-8
 from PySide6.QtWidgets import QLabel
 from PySide6.QtGui import QFont,QPalette,QColor,QPixmap
+from PySide6.QtCore import Signal,Qt
 
 class loginButton(QLabel):
+    clicked = Signal()
     def __init__(self,parent=None):
         super().__init__(parent)
+
         self.hoverColor = "blue"
         self.leaveColor = "black"
+
+    def setFunction(self,Function):
+        self.Function = Function
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:  # 检测鼠标左键按下
+            self.Function()
+        super().mousePressEvent(event)
+        #print(event.button())
 
     def setHoverColor(self,color):
         self.hoverColor = color
@@ -38,14 +49,20 @@ class loginButton(QLabel):
         palette.setColor(QPalette.ColorRole.WindowText,QColor(self.leaveColor))
         self.setPalette(palette)
 
-
-
 class iconButton(QLabel):
+    clicked = Signal()
     def __init__(self,parent=None):
         self.parent = parent
         super().__init__(parent)
         self.setPixmap(QPixmap(":/tool/resource/avatar.png"))
-        #self.setScaledContents(True)
-        self.setGeometry(640,10,50,35)
+
+    def setFunction(self,Function,):
+        self.Function = Function
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:  # 检测鼠标左键按下
+            self.Function()
+        super().mousePressEvent(event)
+        #print(event.button())
+
 
 

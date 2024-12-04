@@ -15,28 +15,36 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-    QSizePolicy, QWidget)
+from PySide6.QtWidgets import (QApplication, QPushButton, QSizePolicy, QWidget)
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        if not Dialog.objectName():
-            Dialog.setObjectName(u"Dialog")
-        Dialog.resize(400, 300)
-        self.buttonBox = QDialogButtonBox(Dialog)
-        self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setGeometry(QRect(30, 240, 341, 32))
-        self.buttonBox.setOrientation(Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+class Ui_Form(object):
+    def setupUi(self, Form):
+        if not Form.objectName():
+            Form.setObjectName(u"Form")
+        Form.resize(1020, 628)
+        self.question = QWidget(Form)
+        self.question.setObjectName(u"question")
+        self.question.setGeometry(QRect(10, 20, 731, 251))
+        self.question.setStyleSheet(u"background-color:white")
+        self.items = QWidget(Form)
+        self.items.setObjectName(u"items")
+        self.items.setGeometry(QRect(10, 290, 731, 251))
+        self.items.setStyleSheet(u"background-color:white")
+        self.anwser = QWidget(Form)
+        self.anwser.setObjectName(u"anwser")
+        self.anwser.setGeometry(QRect(750, 20, 231, 521))
+        self.anwser.setStyleSheet(u"background-color:white")
+        self.pushButton = QPushButton(Form)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(360, 570, 80, 21))
 
-        self.retranslateUi(Dialog)
-        self.buttonBox.accepted.connect(Dialog.accept)
-        self.buttonBox.rejected.connect(Dialog.reject)
+        self.retranslateUi(Form)
 
-        QMetaObject.connectSlotsByName(Dialog)
+        QMetaObject.connectSlotsByName(Form)
     # setupUi
 
-    def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.pushButton.setText(QCoreApplication.translate("Form", u"PushButton", None))
     # retranslateUi
 
