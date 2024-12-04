@@ -2,10 +2,17 @@
     "files": [
         "main/login.py",
         "mainwindow.py",
-        "ui/login.py",
-        "ui/login.ui",
         "ui/mainwindow.ui",
         "ui/mainwindow.py",
-        "main/mainwindow.py"
+        "main/mainwindow.py",
+        "resource.qrc",
+        "rc_resource.py",
+        "main/background.py",
+        "main/tools.py",
+        "ui/login.ui",
+        "ui/login.py",
+        "main/testpaper.py",
+        "ui/testpaper.py",
+        "ui/testpaper.ui"
     ]
 }
