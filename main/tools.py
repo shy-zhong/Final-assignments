@@ -1,10 +1,9 @@
 # This Python file uses the following encoding: utf-8
 from PySide6.QtWidgets import QLabel
 from PySide6.QtGui import QFont,QPalette,QColor,QPixmap
-from PySide6.QtCore import Signal,Qt
+from PySide6.QtCore import Qt
 
 class loginButton(QLabel):
-    clicked = Signal()
     def __init__(self,parent=None):
         super().__init__(parent)
 
@@ -50,7 +49,6 @@ class loginButton(QLabel):
         self.setPalette(palette)
 
 class iconButton(QLabel):
-    clicked = Signal()
     def __init__(self,parent=None):
         self.parent = parent
         super().__init__(parent)

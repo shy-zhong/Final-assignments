@@ -13,6 +13,9 @@
         "ui/login.py",
         "main/testpaper.py",
         "ui/testpaper.py",
-        "ui/testpaper.ui"
+        "ui/testpaper.ui",
+        "user.sql",
+        "func/mysql.py",
+        "func/check.py"
     ]
 }

@@ -11,58 +11,81 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>试卷</string>
   </property>
-  <widget class="QWidget" name="question" native="true">
+  <widget class="QWidget" name="questions" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>20</y>
-     <width>731</width>
-     <height>251</height>
+     <width>591</width>
+     <height>231</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:white</string>
    </property>
+   <widget class="QLabel" name="question">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>331</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>在上述示例中，创建了一个简单的 QWidget 派生类 MyWidget，在其构造函数里通过 self.setWindowFlags(~Qt.WindowMinMaxButtonsHint) 正确地设置了窗口标志，使得最终显示的窗口上不会出现最小化和最大化按钮提示（对应的按钮也就不会显示了）。
+总的来说，原代码的目的是改变窗口显示相关的标志属性，但语法上需要按正确的操作符来处理 Qt 窗口标志常量，以达到期望的效果。</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
-  <widget class="QWidget" name="items" native="true">
+  <widget class="QWidget" name="answers" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>290</y>
-     <width>731</width>
-     <height>251</height>
+     <x>30</x>
+     <y>310</y>
+     <width>591</width>
+     <height>231</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:white</string>
    </property>
+   <widget class="QListWidget" name="answer">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>591</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QWidget" name="anwser" native="true">
+  <widget class="QFrame" name="card">
    <property name="geometry">
     <rect>
-     <x>750</x>
-     <y>20</y>
-     <width>231</width>
-     <height>521</height>
+     <x>649</x>
+     <y>40</y>
+     <width>221</width>
+     <height>501</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color:white</string>
+    <string notr="true"/>
    </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>570</y>
-     <width>80</width>
-     <height>21</height>
-    </rect>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
-   <property name="text">
-    <string>PushButton</string>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
   </widget>
  </widget>
