@@ -1,4 +1,4 @@
-from ui.login import Ui_Dialog
+from ui.ui_login import Ui_Login
 from PySide6.QtWidgets import QDialog,QLabel
 from PySide6.QtCore import QRect,QCoreApplication,Slot
 from PySide6.QtGui import QPixmap,Qt
@@ -10,7 +10,7 @@ import rc_resource
 class Login(QDialog):
     def __init__(self,parent=None):
         super().__init__(parent)
-        self.ui = Ui_Dialog()
+        self.ui = Ui_Login()
         self.ui.setupUi(self)
 
         self.setWindowTitle("登录")

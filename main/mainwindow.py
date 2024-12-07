@@ -1,9 +1,9 @@
 # This Python file uses the following encoding: utf-8
 
-from PySide6.QtWidgets import QMainWindow, QLabel, QSizePolicy
+from PySide6.QtWidgets import QMainWindow, QLabel, QPushButton
 from PySide6.QtGui import QPixmap
 from PySide6.QtCore import Qt,QRect,Slot
-from ui.mainwindow import Ui_MainWindow
+from ui.ui_mainwindow import Ui_MainWindow
 from main.tools import loginButton,iconButton
 from main.login import Login
 from main.testpaper import testpaper
@@ -17,7 +17,11 @@ class MainWindow(QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.pushButton.clicked.connect(self.open)
+
+        self.pushButton = QPushButton(self)
+        self.pushButton.clicked.connect(self.open)
+        self.pushButton.setGeometry(0,0,100,50)
+        self.pushButton.setText("clicked me")
 
         self.a=testpaper()
         #self.a.close()

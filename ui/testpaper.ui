@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Testpaper</class>
+ <widget class="QWidget" name="Testpaper">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -69,23 +69,17 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="card">
+  <widget class="QWidget" name="card" native="true">
    <property name="geometry">
     <rect>
-     <x>649</x>
-     <y>40</y>
-     <width>221</width>
-     <height>501</height>
+     <x>660</x>
+     <y>30</y>
+     <width>211</width>
+     <height>511</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+    <string notr="true">background-color:white;</string>
    </property>
   </widget>
  </widget>

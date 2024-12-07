@@ -2,20 +2,20 @@
     "files": [
         "main/login.py",
         "mainwindow.py",
-        "ui/mainwindow.ui",
-        "ui/mainwindow.py",
         "main/mainwindow.py",
         "resource.qrc",
         "rc_resource.py",
         "main/background.py",
         "main/tools.py",
-        "ui/login.ui",
-        "ui/login.py",
         "main/testpaper.py",
-        "ui/testpaper.py",
-        "ui/testpaper.ui",
         "user.sql",
         "func/mysql.py",
-        "func/check.py"
+        "func/check.py",
+        "ui/ui_login.py",
+        "ui/ui_mainwindow.py",
+        "ui/ui_testpaper.py",
+        "ui/login.ui",
+        "ui/mainwindow.ui",
+        "ui/testpaper.ui"
     ]
 }
