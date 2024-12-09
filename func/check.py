@@ -1,8 +1,8 @@
 # This Python file uses the following encoding: utf-8
 
 class Check:
-    def __init__(self):
-        pass
+
+    @staticmethod
     def checkOption(answer,result):
         if len(answer) == len(result):
             for i in range(len(answer)):

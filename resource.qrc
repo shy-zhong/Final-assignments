@@ -6,4 +6,8 @@
     <qresource prefix="/tool">
         <file>resource/avatar.png</file>
     </qresource>
+    <qresource prefix="/ico">
+        <file>resource/pxk.ico</file>
+        <file>resource/zyy.ico</file>
+    </qresource>
 </RCC>

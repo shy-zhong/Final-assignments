@@ -30,13 +30,12 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>331</width>
+      <width>491</width>
       <height>161</height>
      </rect>
     </property>
     <property name="text">
-     <string>在上述示例中，创建了一个简单的 QWidget 派生类 MyWidget，在其构造函数里通过 self.setWindowFlags(~Qt.WindowMinMaxButtonsHint) 正确地设置了窗口标志，使得最终显示的窗口上不会出现最小化和最大化按钮提示（对应的按钮也就不会显示了）。
-总的来说，原代码的目的是改变窗口显示相关的标志属性，但语法上需要按正确的操作符来处理 Qt 窗口标志常量，以达到期望的效果。</string>
+     <string/>
     </property>
     <property name="wordWrap">
      <bool>true</bool>
@@ -72,7 +71,7 @@
   <widget class="QWidget" name="card" native="true">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>630</x>
      <y>30</y>
      <width>211</width>
      <height>511</height>
@@ -81,6 +80,26 @@
    <property name="styleSheet">
     <string notr="true">background-color:white;</string>
    </property>
+   <widget class="QWidget" name="s" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="m" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>240</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

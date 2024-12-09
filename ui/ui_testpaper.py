@@ -29,7 +29,7 @@ class Ui_Testpaper(object):
         self.questions.setStyleSheet(u"background-color:white")
         self.question = QLabel(self.questions)
         self.question.setObjectName(u"question")
-        self.question.setGeometry(QRect(10, 0, 331, 161))
+        self.question.setGeometry(QRect(10, 0, 491, 161))
         self.question.setWordWrap(True)
         self.answers = QWidget(Testpaper)
         self.answers.setObjectName(u"answers")
@@ -41,8 +41,14 @@ class Ui_Testpaper(object):
         self.answer.setStyleSheet(u"border: none;")
         self.card = QWidget(Testpaper)
         self.card.setObjectName(u"card")
-        self.card.setGeometry(QRect(660, 30, 211, 511))
+        self.card.setGeometry(QRect(630, 30, 211, 511))
         self.card.setStyleSheet(u"background-color:white;")
+        self.s = QWidget(self.card)
+        self.s.setObjectName(u"s")
+        self.s.setGeometry(QRect(30, 50, 120, 80))
+        self.m = QWidget(self.card)
+        self.m.setObjectName(u"m")
+        self.m.setGeometry(QRect(30, 240, 120, 80))
 
         self.retranslateUi(Testpaper)
 
@@ -51,7 +57,6 @@ class Ui_Testpaper(object):
 
     def retranslateUi(self, Testpaper):
         Testpaper.setWindowTitle(QCoreApplication.translate("Testpaper", u"\u8bd5\u5377", None))
-        self.question.setText(QCoreApplication.translate("Testpaper", u"\u5728\u4e0a\u8ff0\u793a\u4f8b\u4e2d\uff0c\u521b\u5efa\u4e86\u4e00\u4e2a\u7b80\u5355\u7684 QWidget \u6d3e\u751f\u7c7b MyWidget\uff0c\u5728\u5176\u6784\u9020\u51fd\u6570\u91cc\u901a\u8fc7 self.setWindowFlags(~Qt.WindowMinMaxButtonsHint) \u6b63\u786e\u5730\u8bbe\u7f6e\u4e86\u7a97\u53e3\u6807\u5fd7\uff0c\u4f7f\u5f97\u6700\u7ec8\u663e\u793a\u7684\u7a97\u53e3\u4e0a\u4e0d\u4f1a\u51fa\u73b0\u6700\u5c0f\u5316\u548c\u6700\u5927\u5316\u6309\u94ae\u63d0\u793a\uff08\u5bf9\u5e94\u7684\u6309\u94ae\u4e5f\u5c31\u4e0d\u4f1a\u663e\u793a\u4e86\uff09\u3002\n"
-"\u603b\u7684\u6765\u8bf4\uff0c\u539f\u4ee3\u7801\u7684\u76ee\u7684\u662f\u6539\u53d8\u7a97\u53e3\u663e\u793a\u76f8\u5173\u7684\u6807\u5fd7\u5c5e\u6027\uff0c\u4f46\u8bed\u6cd5\u4e0a\u9700\u8981\u6309\u6b63\u786e\u7684\u64cd\u4f5c\u7b26\u6765\u5904\u7406 Qt \u7a97\u53e3\u6807\u5fd7\u5e38\u91cf\uff0c\u4ee5\u8fbe\u5230\u671f\u671b\u7684\u6548\u679c\u3002", None))
+        self.question.setText("")
     # retranslateUi
 

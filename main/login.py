@@ -1,14 +1,18 @@
 from ui.ui_login import Ui_Login
-from PySide6.QtWidgets import QDialog,QLabel
-from PySide6.QtCore import QRect,QCoreApplication,Slot
-from PySide6.QtGui import QPixmap,Qt
-
+from PySide6.QtWidgets import QDialog,QLabel,QMessageBox
+from PySide6.QtCore import QRect,QCoreApplication,Slot,Signal
+from PySide6.QtGui import QPixmap
+from func.mysql import Mysql
 from main.tools import loginButton
 
 import rc_resource
 
 class Login(QDialog):
+
+    LoginOver = Signal(str)
+
     def __init__(self,parent=None):
+        
         super().__init__(parent)
         self.ui = Ui_Login()
         self.ui.setupUi(self)
@@ -30,6 +34,29 @@ class Login(QDialog):
         self.ui.enter.clicked.connect(self.Check)
         self.ui.cancel.clicked.connect(self.reject)
 
+    def login(self,username:str,password:str)->bool:
+        if username == None or password == None:
+            return False
+        result = Mysql.select(Mysql.connect(),"login",username=username)
+        if result == None:
+            return False
+        else:
+            return password == result[1]
+    
+
     @Slot()
     def Check(self):
-        pass
+        username = self.ui.username.text()
+        password = self.ui.password.text()
+        if self.login(username,password):
+            message =  QMessageBox()
+            message.setIcon(QMessageBox.Information)
+            message.setText("登录成功")
+            message.exec()
+            self.LoginOver.emit(username)
+            self.close()
+        else:
+            message =  QMessageBox()
+            message.setIcon(QMessageBox.Critical)
+            message.setText("登录失败")
+            message.exec()

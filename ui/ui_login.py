@@ -41,6 +41,10 @@ class Ui_Login(object):
         self.cancel = QPushButton(Login)
         self.cancel.setObjectName(u"cancel")
         self.cancel.setGeometry(QRect(220, 190, 80, 21))
+        self.pushButton = QPushButton(Login)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(110, 130, 60, 60))
+        self.pushButton.setStyleSheet(u"background:red;border-radius:10px;border:10px;")
 
         self.retranslateUi(Login)
 
@@ -51,7 +55,10 @@ class Ui_Login(object):
         Login.setWindowTitle(QCoreApplication.translate("Login", u"Dialog", None))
         self.tip1.setText(QCoreApplication.translate("Login", u"\u767b\u5f55", None))
         self.tip2.setText(QCoreApplication.translate("Login", u"\u5bc6\u7801", None))
+        self.username.setText(QCoreApplication.translate("Login", u"zyy", None))
+        self.password.setText(QCoreApplication.translate("Login", u"123456", None))
         self.enter.setText(QCoreApplication.translate("Login", u"\u767b\u5f55", None))
         self.cancel.setText(QCoreApplication.translate("Login", u"\u53d6\u6d88", None))
+        self.pushButton.setText(QCoreApplication.translate("Login", u"PushButton", None))
     # retranslateUi
 
