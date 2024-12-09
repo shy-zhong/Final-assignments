@@ -4,13 +4,12 @@ if __name__ == "__main__":
     from PySide6.QtWidgets import QApplication
     sys.path.append("D:\\project\\QT\\Final-assignments")
 from func.mysql import Mysql
-from func.check import Check
 from main.tools import cardButton
 from ui.ui_testpaper import Ui_Testpaper
 from PySide6.QtWidgets import (QWidget, QListWidgetItem, QLabel, QPushButton, QSizePolicy
                                 , QSpacerItem, QHBoxLayout,QVBoxLayout)
 from PySide6.QtCore import Qt, QRect,Slot,QSize
-from PySide6.QtGui import QFont, QPixmap,QFont
+from PySide6.QtGui import QFont, QPixmap,QFont,QIcon
 from random import randint
 from math import ceil
 import rc_resource
@@ -65,6 +64,9 @@ class testpaper(QWidget):
         self.ui.answer.itemClicked.connect(self.chosen)
         self.ui.answer.itemClicked.connect(self.saveAnswer)
         self.createQuestion()
+
+        self.setWindowIcon(QIcon(QPixmap(":/background/resource/open.png")))
+        self.setWindowFlag(Qt.WindowType.MSWindowsFixedSizeDialogHint,True)
         
     def createAnswerCard(self,cnt = 25):
         row = 5
@@ -284,19 +286,10 @@ class testpaper(QWidget):
             self.muti_options[int((id-1)/5)].itemAt(int((id-1)%5)).widget().setAnswer(answer)
 
         
-
-
 if __name__ == "__main__":
     app = QApplication()
-    w = testpaper("mao",80)
+    w = testpaper("mao",60)
     w.show()
     sys.exit(app.exec())
-
-    # db = Mysql.connect()
-    # a = Mysql.max(db,"database",False)[0]
-    # b = Mysql.max(db,"chinese",True)[0]
-    # print(a)
-    # print(b)
-    # print(a+b)
 
     sys.path.pop()

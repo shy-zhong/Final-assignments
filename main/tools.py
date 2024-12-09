@@ -72,17 +72,14 @@ class iconButton(Button):
     def __init__(self,parent=None):
         self.parent = parent
         super().__init__(parent)
-        
-        self.setPicture()
+        self.setPixmap(QPixmap(":/tool/resource/avatar.png"))
+        self.setScaledContents(False)
+
 
     def setPicture(self, arg__1=":/tool/resource/avatar.png" ) -> None:
-        if arg__1 == ":/tool/resource/avatar.png":
-            tt = False
-        else:
-            tt = True
         picture = QPixmap(arg__1)
         self.setPixmap(picture)
-        self.setScaledContents(tt)
+        self.setScaledContents(True)
 
 class cardButton(QPushButton):
     sendIndex = Signal(int,int,bool)

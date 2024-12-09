@@ -1,23 +1,24 @@
 import pymysql as a
 
 class Mysql:
-
+    host = "localhost"
     dictionary = {
+        None:"",
         False:'_single_choice',
         True:'_multiple_choice'
     }
 
-    @staticmethod
-    def connect():
+    @classmethod
+    def connect(cls):
         db = a.connect(
-            host="localhost",  # MySQL服务器地址
+            host=cls.host,  # MySQL服务器地址
             user="root",   # 用户名
             password="zyy123456",  # 密码
             database="MyData"  # 数据库名称
         )
         return db
     @classmethod
-    def select(cls,db,goal,mutipleorsingle:bool,index = None, username = None):
+    def select(cls,db,goal,mutipleorsingle:bool = None,index = None, username = None):
         cursor = db.cursor()
         command = "select * from " + goal + cls.dictionary[mutipleorsingle]
         if index != None :
@@ -48,3 +49,7 @@ class Mysql:
         except:
             results = (0,0,)
         return results
+    @classmethod
+    def setHost(cls,host):
+        cls.host = host
+

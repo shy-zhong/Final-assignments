@@ -17,12 +17,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QListWidget, QListWidgetItem,
     QSizePolicy, QWidget)
+import resource_rc
 
 class Ui_Testpaper(object):
     def setupUi(self, Testpaper):
         if not Testpaper.objectName():
             Testpaper.setObjectName(u"Testpaper")
         Testpaper.resize(1020, 628)
+        icon = QIcon()
+        icon.addFile(u":/background/resource/open.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        Testpaper.setWindowIcon(icon)
         self.questions = QWidget(Testpaper)
         self.questions.setObjectName(u"questions")
         self.questions.setGeometry(QRect(30, 20, 591, 231))

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>试卷</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../resource.qrc">
+    <normaloff>:/background/resource/open.png</normaloff>:/background/resource/open.png</iconset>
+  </property>
   <widget class="QWidget" name="questions" native="true">
    <property name="geometry">
     <rect>
@@ -102,6 +106,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

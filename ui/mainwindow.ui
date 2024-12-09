@@ -19,9 +19,15 @@
   <property name="windowTitle">
    <string>备考宝典</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../resource.qrc">
+    <normaloff>:/background/resource/open.png</normaloff>:/background/resource/open.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

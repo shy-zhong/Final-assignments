@@ -8,7 +8,6 @@
         "main/background.py",
         "main/tools.py",
         "main/testpaper.py",
-        "user.sql",
         "func/mysql.py",
         "func/check.py",
         "ui/ui_login.py",

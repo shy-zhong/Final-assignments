@@ -3,12 +3,13 @@ if __name__ == "__main__":
     import sys
     from PySide6.QtWidgets import QApplication
     sys.path.append("D:\\project\\QT\\Final-assignments")
-from PySide6.QtWidgets import QMainWindow, QLabel, QPushButton, QComboBox
-from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QMainWindow, QLabel, QPushButton, QComboBox, QMessageBox
+from PySide6.QtGui import QPixmap, QShortcut
 from PySide6.QtCore import Qt,Slot,QSize
 from ui.ui_mainwindow import Ui_MainWindow
 from main.tools import loginButton,iconButton
 from main.login import Login
+from main.background import information
 from main.testpaper import testpaper
 from func.mysql import Mysql
 import rc_resource
@@ -19,6 +20,8 @@ class MainWindow(QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.username = str()
+        #self.setWindowIcon(QIcon(QPixmap(":/background/resource/open.png")))
 
         self.background = QLabel(self)
         self.background.setPixmap(QPixmap(":/background/resource/background.jpg"))
@@ -59,15 +62,23 @@ class MainWindow(QMainWindow):
         self.icon.setFunction(self.enterLogin)
         self.icon.resize(QSize(50,50))
 
+        self.shutcut = QShortcut(Qt.Modifier.CTRL | Qt.Key.Key_S, self)
+        self.shutcut.activated.connect(lambda:information().show())
+
     @Slot()
     def enterLogin(self):
         login = Login()
         login.LoginOver.connect(self.setProperty)
         login.exec()
         login.LoginOver.disconnect(self.setProperty)
-
     @Slot()
     def open(self):
+
+        if self.username == "":
+            QMessageBox.critical(self,"提示","请先登录")
+            return
+        else:
+            QMessageBox.information(self,"提示","考试开始")
         dictionary = {'语文':'chinese',
                       '计算机基础':'basic_computer',
                       '数据库':'database',
@@ -81,6 +92,7 @@ class MainWindow(QMainWindow):
     @Slot(str)
     def setProperty(self,username):
         #print(":/ico/resource/zyy.ico")
+        self.username = username
         self.icon.setPicture(":/ico/resource/"+username+".ico")
         self.icon.setFunction(None)
         self.login.setFunction(None)

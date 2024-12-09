@@ -2,6 +2,7 @@
     <qresource prefix="/background">
         <file>resource/background.jpg</file>
         <file>resource/blue.png</file>
+        <file>resource/open.png</file>
     </qresource>
     <qresource prefix="/tool">
         <file>resource/avatar.png</file>
