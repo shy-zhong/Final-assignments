@@ -71,4 +71,4 @@ CMakeLists.txt.user*
 # --------
 *.dll
 # Extra
-!venv/
+venv/
