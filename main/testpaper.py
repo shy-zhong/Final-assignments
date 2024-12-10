@@ -168,7 +168,7 @@ class testpaper(QWidget):
         
         result = self.result
         self.ui.question.setText(result[3])
-        print(result)
+        #print(result)
         if not(self.checked.isEnabled()):
             self.reason.setText(self.result[9])
             #print(self.result[9])
