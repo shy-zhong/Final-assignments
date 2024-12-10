@@ -2,6 +2,7 @@ import pymysql as a
 
 class Mysql:
     host = "localhost"
+    password = "zyy123456"
     dictionary = {
         None:"",
         False:'_single_choice',
@@ -13,7 +14,7 @@ class Mysql:
         db = a.connect(
             host=cls.host,  # MySQL服务器地址
             user="root",   # 用户名
-            password="zyy123456",  # 密码
+            password=cls.password,  # 密码
             database="MyData"  # 数据库名称
         )
         return db
@@ -52,4 +53,6 @@ class Mysql:
     @classmethod
     def setHost(cls,host):
         cls.host = host
-
+    @classmethod
+    def setPassword(cls,password):
+        cls.password = password

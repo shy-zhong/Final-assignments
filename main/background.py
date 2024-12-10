@@ -1,7 +1,7 @@
 if __name__ == "__main__":
     import sys
     from PySide6.QtWidgets import QApplication
-    sys.path.append("D:\\project\\QT\\Final-assignments")
+    sys.path.append("D:\\zyy\\oneDrive\\Desktop\\Final-assignments")
 from PySide6.QtWidgets import QLabel,QWidget, QVBoxLayout, QTextEdit, QSizePolicy, QPushButton, QHBoxLayout
 from PySide6.QtGui import QPixmap,QIcon
 from PySide6.QtCore import Qt
@@ -26,6 +26,7 @@ class information(QWidget):
 
         self.label = QLabel()
         self.host = QTextEdit()
+        self.password = QTextEdit()
         self.button1 = QPushButton()
         self.button2 = QPushButton()
         layout = QVBoxLayout()
@@ -37,12 +38,18 @@ class information(QWidget):
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.label)
 
-        self.host.setFixedSize(120,25)
+        self.host.setFixedSize(120,30)
         self.host.setStyleSheet("background-color:white")
         self.host.setSizePolicy(QSizePolicy.Fixed,QSizePolicy.Fixed)
         self.host.setPlaceholderText("127.0.0.1")
         self.host.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.host)
+
+        self.password.setFixedSize(120,30)
+        self.password.setStyleSheet("background-color:white")
+        self.password.setSizePolicy(QSizePolicy.Fixed,QSizePolicy.Fixed)
+        self.password.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(self.password)
 
         self.button1.clicked.connect(lambda : Mysql.setHost(self.host.toPlainText()))
         self.button1.clicked.connect(lambda : self.close())
@@ -74,7 +81,7 @@ class information(QWidget):
 
 if __name__ == "__main__":
     app = QApplication()
-    a = information(150,50)
+    a = information(200,100)
     a.show()
     sys.exit(app.exec())
     sys.path.pop()
