@@ -1,9 +1,5 @@
-if __name__ == "__main__":
-    import sys
-    from PySide6.QtWidgets import QApplication
-    sys.path.append("D:\\zyy\\oneDrive\\Desktop\\Final-assignments")
 from PySide6.QtWidgets import QLabel,QWidget, QVBoxLayout, QLineEdit, QSizePolicy, QPushButton, QHBoxLayout
-from PySide6.QtGui import QPixmap,QIcon
+from PySide6.QtGui import QPixmap,QIcon,QShortcut
 from PySide6.QtCore import Qt
 from func.mysql import Mysql
 import rc_resource
@@ -78,11 +74,4 @@ class information(QWidget):
                             | Qt.WindowType.WindowStaysOnTopHint
                             | Qt.WindowType.MSWindowsFixedSizeDialogHint
                             )
-       
-
-if __name__ == "__main__":
-    app = QApplication()
-    a = information(200,100)
-    a.show()
-    sys.exit(app.exec())
-    sys.path.pop()
+        QShortcut(Qt.Key.Key_Enter,self).activated.connect(lambda : self.button1.clicked.emit())

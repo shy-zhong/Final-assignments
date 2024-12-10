@@ -1,8 +1,4 @@
 # This Python file uses the following encoding: utf-8
-if __name__ == "__main__":
-    import sys
-    from PySide6.QtWidgets import QApplication
-    sys.path.append("D:\\zyy\\oneDrive\\Desktop\\Final-assignments")
 from PySide6.QtWidgets import QMainWindow, QLabel, QPushButton, QComboBox, QMessageBox
 from PySide6.QtGui import QPixmap, QShortcut
 from PySide6.QtCore import Qt,Slot,QSize
@@ -106,11 +102,3 @@ class MainWindow(QMainWindow):
         self.icon.move(self.width()-150,0)
         self.background.resize(self.size())
         return super().resizeEvent(event)
-    
-    
-if __name__ == "__main__":
-    app = QApplication()
-    w = MainWindow()
-    w.show()
-    sys.exit(app.exec())
-    sys.path.pop()

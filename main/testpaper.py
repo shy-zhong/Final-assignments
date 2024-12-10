@@ -1,8 +1,4 @@
 # This Python file uses the following encoding: utf-8
-if __name__ == "__main__":
-    import sys
-    from PySide6.QtWidgets import QApplication
-    sys.path.append("D:\\zyy\\oneDrive\\Desktop\\Final-assignments")
 from func.mysql import Mysql
 from main.tools import cardButton
 from ui.ui_testpaper import Ui_Testpaper
@@ -12,6 +8,7 @@ from PySide6.QtCore import Qt, QRect,Slot,QSize
 from PySide6.QtGui import QFont, QPixmap,QFont,QIcon
 from random import randint
 from math import ceil
+from time import sleep
 import rc_resource
 
 class testpaper(QWidget):
@@ -22,6 +19,7 @@ class testpaper(QWidget):
         self.db = Mysql.connect()
         self.subject = subject
         self.cnt = cnt
+        self.right_answer = QLabel(self)
         self.single = Mysql.max(self.db,subject,False)[0]
         self.mutiple = Mysql.max(self.db,subject,True)[0]
         self.maxIndex = int(self.single+self.mutiple)
@@ -33,11 +31,17 @@ class testpaper(QWidget):
         self.reason = QLabel(self.ui.questions)
         self.reason.setWordWrap(True)
         self.reason.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+
+        self.right_answer = QLabel(self.ui.questions)
+        self.right_answer.setWordWrap(True)
+        self.right_answer.setAlignment(Qt.AlignTop | Qt.AlignLeft)
         
         font = QFont()
         font.setPointSize(12)
-        font.setLetterSpacing(QFont.PercentageSpacing, 105);
+        font.setLetterSpacing(QFont.PercentageSpacing, 105)
+
         self.reason.setFont(font)
+        self.right_answer.setFont(font)
 
         self.background = QLabel(self)
         self.background.setPixmap(QPixmap(":/background/resource/blue.png"))
@@ -170,6 +174,13 @@ class testpaper(QWidget):
         self.ui.question.setText(result[3])
         #print(result)
         if not(self.checked.isEnabled()):
+            if self.result[2] == "单选题":
+                yn = self.single_options[int((self.id-1)/5)].itemAt(int((self.id-1)%5)).widget().returnResult()
+            id = self.id - ceil(self.cnt*0.7)
+            if self.result[2] == "多选题":
+                yn = self.muti_options[int((id-1)/5)].itemAt(int((id-1)%5)).widget().returnResult()
+            if not(yn):
+                self.right_answer.setText("正确答案是： "+self.result[8])
             self.reason.setText(self.result[9])
             #print(self.result[9])
 
@@ -250,6 +261,7 @@ class testpaper(QWidget):
                 if i != self.ui.answer.row(item):
                     self.indexs[i] = Qt.Unchecked
                     self.ui.answer.item(i).setCheckState(Qt.Unchecked)
+          
     @Slot()
     def check(self):
         for i in self.single_options+self.muti_options:
@@ -257,12 +269,21 @@ class testpaper(QWidget):
                 for temp in [i.itemAt(index).widget() for index in range (i.count()) ]:
                     if type(temp) == cardButton:
                         temp.checkAll()
+        if self.result[2] == "单选题":
+                yn = self.single_options[int((self.id-1)/5)].itemAt(int((self.id-1)%5)).widget().returnResult()
+        id = self.id - ceil(self.cnt*0.7)
+        if self.result[2] == "多选题":
+            yn = self.muti_options[int((id-1)/5)].itemAt(int((id-1)%5)).widget().returnResult()
+        if not(yn):
+                self.right_answer.setText("正确答案是： "+self.result[8])
+        self.reason.setText(self.result[9]) 
 
     def resizeEvent(self, event):
         super().resizeEvent(event)
         self.ui.questions.setGeometry(QRect(60,50,1000,350))
         self.ui.question.setGeometry(QRect(0,0,1000,150))
-        self.reason.setGeometry(QRect(0,150,1000,200))
+        self.right_answer.setGeometry(QRect(0,250,1000,100))
+        self.reason.setGeometry(QRect(0,150,1000,100))
 
         self.ui.answers.setGeometry(QRect(60,420,1000,350))
         self.ui.answer.setGeometry(QRect(0,0,1000,350))
@@ -286,12 +307,3 @@ class testpaper(QWidget):
         id = self.id - ceil(self.cnt*0.7)
         if self.result[2] == "多选题":
             self.muti_options[int((id-1)/5)].itemAt(int((id-1)%5)).widget().setAnswer(answer)
-
-        
-if __name__ == "__main__":
-    app = QApplication()
-    w = testpaper("mao",1)
-    w.show()
-    sys.exit(app.exec())
-
-    sys.path.pop()

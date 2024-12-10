@@ -6,3 +6,4 @@
 # 使用须知
 使用前先运行init.bat构建环境
 运行入口程序mainwindow.py
+mydata.sql本程序使用的数据库文件

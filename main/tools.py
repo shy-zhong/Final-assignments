@@ -122,17 +122,17 @@ class cardButton(QPushButton):
         self.setResult()
     
     def returnResult(self) -> bool:
-        print(self.answer,self.result)
+        #print(self.answer,self.result)
         try:
             return Check.checkOption(self.answer,self.result)
         except:
             return False
         
-    def checkAll(self):
+    def checkAll(self)->bool:
         #self.setEnabled(False)
         self.answer = self.returnAnswer()
         result = self.returnResult()
         if result:
             self.setStyleSheet("QPushButton { background-color: #55aa00; } QPushButton:hover { background-color: #55aa00;border-radius:5px;}")    
         else:
-            self.setStyleSheet("QPushButton { background-color: #ff0000; } QPushButton:hover { background-color: #ff0000;border-radius:5px;}")
+            self.setStyleSheet("QPushButton { background-color: #ff0000; } QPushButton:hover { background-color: #ff0000;border-radius:5px;}")    
