@@ -4,16 +4,16 @@ class Check:
 
     @staticmethod
     def checkOption(answer,result):
-        print((result))
+        #print((result))
         if len(answer) == len(result):
-            print(1)
+            #print(1)
             for i in range(len(answer)):
-                print(2)
+                #print(2)
                 if answer[i] != result[i]:
-                    print("error")
+                    #print("error")
                     return False
-            print("right")
+            #print("right")
             return True
-        print("error")
+        #print("error")
         return False
 
