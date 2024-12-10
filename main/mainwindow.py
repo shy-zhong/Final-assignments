@@ -17,7 +17,6 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.username = str()
-        #self.setWindowIcon(QIcon(QPixmap(":/background/resource/open.png")))
 
         self.background = QLabel(self)
         self.background.setPixmap(QPixmap(":/background/resource/background.jpg"))
