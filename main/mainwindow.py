@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import sys
     from PySide6.QtWidgets import QApplication
-    sys.path.append("D:\\project\\QT\\Final-assignments")
+    sys.path.append("D:\\zyy\\oneDrive\\Desktop\\Final-assignments")
 from PySide6.QtWidgets import QMainWindow, QLabel, QPushButton, QComboBox, QMessageBox
 from PySide6.QtGui import QPixmap, QShortcut
 from PySide6.QtCore import Qt,Slot,QSize
@@ -74,11 +74,11 @@ class MainWindow(QMainWindow):
     @Slot()
     def open(self):
 
-        if self.username == "":
-            QMessageBox.critical(self,"提示","请先登录")
-            return
-        else:
-            QMessageBox.information(self,"提示","考试开始")
+        # if self.username == "":
+        #     QMessageBox.critical(self,"提示","请先登录")
+        #     return
+        # else:
+        #     QMessageBox.information(self,"提示","考试开始")
         dictionary = {'语文':'chinese',
                       '计算机基础':'basic_computer',
                       '数据库':'database',

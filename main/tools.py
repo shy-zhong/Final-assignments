@@ -3,6 +3,7 @@ from PySide6.QtWidgets import QLabel, QPushButton, QSizePolicy
 from PySide6.QtGui import QFont,QPalette,QColor,QPixmap
 from PySide6.QtCore import Qt, QSize, Signal, Slot
 from func.check import Check
+from func.mysql import Mysql
 class Button(QLabel):
     def __init__(self,parent=None):
         super().__init__(parent)
@@ -102,8 +103,15 @@ class cardButton(QPushButton):
         except:
             return list()
         
-    def setResult(self,result):
-        self.result = result
+    def setResult(self):
+        try:
+            self.result = Mysql.select(Mysql.connect(),self.subject,self.mutipleorsingle,self.index)[8]
+        except:
+            self.result = str()
+            self.setVisible(False)
+
+    def setSubject(self,subject):
+        self.subject = subject
         
     def setAnswer(self,answer):
         self.answer = answer
@@ -111,8 +119,10 @@ class cardButton(QPushButton):
         
     def setIndex(self,id):
         self.index = id
+        self.setResult()
     
     def returnResult(self) -> bool:
+        print(self.answer,self.result)
         try:
             return Check.checkOption(self.answer,self.result)
         except:

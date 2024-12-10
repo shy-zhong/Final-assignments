@@ -2,7 +2,7 @@ if __name__ == "__main__":
     import sys
     from PySide6.QtWidgets import QApplication
     sys.path.append("D:\\zyy\\oneDrive\\Desktop\\Final-assignments")
-from PySide6.QtWidgets import QLabel,QWidget, QVBoxLayout, QTextEdit, QSizePolicy, QPushButton, QHBoxLayout
+from PySide6.QtWidgets import QLabel,QWidget, QVBoxLayout, QLineEdit, QSizePolicy, QPushButton, QHBoxLayout
 from PySide6.QtGui import QPixmap,QIcon
 from PySide6.QtCore import Qt
 from func.mysql import Mysql
@@ -25,8 +25,8 @@ class information(QWidget):
         super().__init__()
 
         self.label = QLabel()
-        self.host = QTextEdit()
-        self.password = QTextEdit()
+        self.host = QLineEdit()
+        self.password = QLineEdit()
         self.button1 = QPushButton()
         self.button2 = QPushButton()
         layout = QVBoxLayout()
@@ -51,7 +51,8 @@ class information(QWidget):
         self.password.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.password)
 
-        self.button1.clicked.connect(lambda : Mysql.setHost(self.host.toPlainText()))
+        self.button1.clicked.connect(lambda : Mysql.setHost(self.host.text()))
+        self.button1.clicked.connect(lambda : Mysql.setPassword(self.password.text()))
         self.button1.clicked.connect(lambda : self.close())
         self.button1.setFixedSize(55,20)
         self.button1.setText("确认")

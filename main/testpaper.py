@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import sys
     from PySide6.QtWidgets import QApplication
-    sys.path.append("D:\\project\\QT\\Final-assignments")
+    sys.path.append("D:\\zyy\\oneDrive\\Desktop\\Final-assignments")
 from func.mysql import Mysql
 from main.tools import cardButton
 from ui.ui_testpaper import Ui_Testpaper
@@ -148,6 +148,7 @@ class testpaper(QWidget):
                 for temp in [i.itemAt(index).widget() for index in range (i.count()) ]:
                     if type(temp) == cardButton:
                         goal = randint(1,self.single)
+                        temp.setSubject(self.subject)
                         temp.setIndex(goal)
                         temp.sendIndex.connect(self.showQuestionandAnswerorReason)
         for i in self.muti_options:
@@ -155,6 +156,7 @@ class testpaper(QWidget):
                 for temp in [i.itemAt(index).widget() for index in range (i.count()) ]:
                     if type(temp) == cardButton:
                         goal = randint(1,self.mutiple)
+                        temp.setSubject(self.subject)
                         temp.setIndex(goal)
                         temp.sendIndex.connect(self.showQuestionandAnswerorReason)
 
@@ -288,7 +290,7 @@ class testpaper(QWidget):
         
 if __name__ == "__main__":
     app = QApplication()
-    w = testpaper("mao",60)
+    w = testpaper("mao",1)
     w.show()
     sys.exit(app.exec())
 

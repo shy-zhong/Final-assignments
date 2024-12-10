@@ -52,7 +52,9 @@ class Mysql:
         return results
     @classmethod
     def setHost(cls,host):
-        cls.host = host
+        if len(host):
+            cls.host = host
     @classmethod
     def setPassword(cls,password):
-        cls.password = password
+        if len(password):
+            cls.password = password
