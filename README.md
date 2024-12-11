@@ -4,6 +4,6 @@
 # 作者的话
 本人大学的软件工程的期末作业，由于时间原因，没有进行优化，代码比较混乱，请见谅。
 # 使用须知
-使用前先运行init.bat构建环境
-运行入口程序mainwindow.py
-mydata.sql本程序使用的数据库文件
+使用前先运行init.bat构建环境 
+运行入口程序mainwindow.py 
+mydata.sql本程序使用的数据库文件 
