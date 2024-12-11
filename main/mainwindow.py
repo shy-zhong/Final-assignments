@@ -68,12 +68,6 @@ class MainWindow(QMainWindow):
         login.LoginOver.disconnect(self.setProperty)
     @Slot()
     def open(self):
-
-        # if self.username == "":
-        #     QMessageBox.critical(self,"提示","请先登录")
-        #     return
-        # else:
-        #     QMessageBox.information(self,"提示","考试开始")
         dictionary = {'语文':'chinese',
                       '计算机基础':'basic_computer',
                       '数据库':'database',
