@@ -1,8 +1,8 @@
 import pymysql as a
 
 class Mysql:
-    host = "localhost"
-    password = "zyy123456"
+    host = "47.97.72.81"
+    password = "123456"
     dictionary = {
         None:"",
         False:'_single_choice',
