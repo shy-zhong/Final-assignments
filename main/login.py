@@ -21,7 +21,7 @@ class Login(QDialog):
         self.register = loginButton(self)
         self.background = QLabel(self)
 
-        self.register.setObjectName(u"register_2")
+        self.register.setObjectName(u"register")
         self.register.setGeometry(QRect(170, 130, 110, 25))
         self.register.setText(QCoreApplication.translate("Dialog", u"\u6ca1\u6709\u8d26\u53f7\uff1f\u70b9\u51fb\u6ce8\u518c", None))
         self.register.setHoverColor("white")

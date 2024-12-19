@@ -10,7 +10,7 @@
 
 # 使用须知
 
-使用前先运行init.bat构建环境  
+使用前先运行init.bat构建环境，并确保python在path中   
 运行入口程序mainwindow.py  
 mydata.sql是本程序使用的数据库文件  
 在主界面按ctrl+s可以使用自己的数据库  

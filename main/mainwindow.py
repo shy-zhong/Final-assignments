@@ -33,9 +33,6 @@ class MainWindow(QMainWindow):
         self.subject.setObjectName(u"subject")
         self.subject.resize(QSize(240, 30))
         self.subject.setStyleSheet("background-color:#aaffff")
-        db = Mysql.connect()
-        self.subject.addItems(( j for i in Mysql.execute(db,"SELECT subjectName FROM subject") for j in i))
-        db.close()
 
         self.count = QComboBox(self)
         self.count.setObjectName(u"count")
@@ -66,6 +63,7 @@ class MainWindow(QMainWindow):
         login.LoginOver.connect(self.setProperty)
         login.exec()
         login.LoginOver.disconnect(self.setProperty)
+
     @Slot()
     def open(self):
         dictionary = {'语文':'chinese',
@@ -75,8 +73,10 @@ class MainWindow(QMainWindow):
                       '计算机组成原理':'computer_organization',
                       '市场营销学':'marketing_studies',
                       '马克思基本主义原理':'marketing_studies'}
-        
-        self.a=testpaper(dictionary[self.subject.currentText()],int(self.count.currentText()))
+        try:
+            self.a=testpaper(dictionary[self.subject.currentText()],int(self.count.currentText()))
+        except:
+            QMessageBox.critical(self,"提示","请先登录！",QMessageBox.Ok)
         self.a.show()
     @Slot(str)
     def setProperty(self,username):
@@ -86,6 +86,10 @@ class MainWindow(QMainWindow):
         self.icon.setFunction(None)
         self.login.setFunction(None)
         self.login.setText(username)
+
+        db = Mysql.connect()
+        self.subject.addItems(( j for i in Mysql.execute(db,"SELECT subjectName FROM subject") for j in i))
+        db.close()
 
     def resizeEvent(self,event):
         self.count.move(self.width()*0.35,self.height()*0.45)

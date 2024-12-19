@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'login.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -22,21 +22,21 @@ class Ui_Login(object):
     def setupUi(self, Login):
         if not Login.objectName():
             Login.setObjectName(u"Login")
-        Login.resize(300, 250)
+        Login.resize(330, 265)
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentSave))
         Login.setWindowIcon(icon)
         self.tip1 = QLabel(Login)
         self.tip1.setObjectName(u"tip1")
-        self.tip1.setGeometry(QRect(40, 50, 31, 21))
+        self.tip1.setGeometry(QRect(50, 60, 31, 21))
         self.tip2 = QLabel(Login)
         self.tip2.setObjectName(u"tip2")
-        self.tip2.setGeometry(QRect(40, 90, 31, 21))
+        self.tip2.setGeometry(QRect(50, 100, 31, 21))
         self.username = QLineEdit(Login)
         self.username.setObjectName(u"username")
-        self.username.setGeometry(QRect(80, 50, 171, 22))
+        self.username.setGeometry(QRect(90, 60, 171, 22))
         self.password = QLineEdit(Login)
         self.password.setObjectName(u"password")
-        self.password.setGeometry(QRect(80, 90, 171, 22))
+        self.password.setGeometry(QRect(90, 100, 171, 22))
         self.enter = QPushButton(Login)
         self.enter.setObjectName(u"enter")
         self.enter.setGeometry(QRect(10, 180, 80, 21))
