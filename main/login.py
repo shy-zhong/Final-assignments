@@ -12,7 +12,7 @@ class Login(QDialog):
     LoginOver = Signal(str)
     registerOver = Signal()
 
-    def __init__(self,parent=None,module="login"):
+    def __init__(self,parent=None):
         self.parent=parent
         super().__init__(parent)
         self.ui = Ui_Login()
