@@ -19,7 +19,7 @@
   <widget class="QLabel" name="tip1">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>40</x>
      <y>30</y>
      <width>31</width>
      <height>21</height>
@@ -28,18 +28,24 @@
    <property name="text">
     <string>登录</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="tip2">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>70</y>
-     <width>31</width>
+     <width>41</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
     <string>密码</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLineEdit" name="username">
@@ -132,6 +138,9 @@
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;验证码
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLineEdit" name="plot">

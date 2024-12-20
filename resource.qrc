@@ -4,10 +4,8 @@
         <file>resource/blue.png</file>
         <file>resource/open.png</file>
     </qresource>
-    <qresource prefix="/tool">
-        <file>resource/avatar.png</file>
-    </qresource>
     <qresource prefix="/ico">
+        <file>resource/avatar.ico</file>
         <file>resource/pxk.ico</file>
         <file>resource/zyy.ico</file>
     </qresource>

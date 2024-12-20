@@ -17,12 +17,13 @@ class Button(QLabel):
         if self.Function == None:
             self.login = True
 
-    def mousePressEvent(self, event):
+    def mouseDoubleClickEvent(self, event):
         if self.Function == None:
-            return super().mousePressEvent(event)
+            return 
         if event.button() == Qt.LeftButton:  # 检测鼠标左键按下
             self.Function()
-        return super().mousePressEvent(event)
+        return super().mouseDoubleClickEvent(event)
+        
 
 class loginButton(Button):
 
@@ -31,7 +32,6 @@ class loginButton(Button):
 
         self.hoverColor = "blue"
         self.leaveColor = "black"
-        self.Function = None
 
     def setHoverColor(self,color):
         self.hoverColor = color
@@ -40,7 +40,17 @@ class loginButton(Button):
         self.leaveColor = color
 
     def mousePressEvent(self, event):
+        if self.Function == None:
+            return 
+        if event.button() == Qt.LeftButton:  # 检测鼠标左键按下
+            self.Function()
         return super().mousePressEvent(event)
+    
+    def mouseDoubleClickEvent(self, event):
+        function = self.Function
+        self.Function = None
+        super().mouseDoubleClickEvent(event)
+        self.Function = function
 
     def enterEvent(self,event):
         super().enterEvent(event)
@@ -78,10 +88,10 @@ class iconButton(Button):
     def __init__(self,parent=None):
         self.parent = parent
         super().__init__(parent)
-        self.setPixmap(QPixmap(":/tool/resource/avatar.png"))
+        self.setPixmap(QPixmap(":/ico/resource/avatar.ico"))
         self.setScaledContents(False)
 
-    def setPicture(self, arg__1=":/tool/resource/avatar.png" ) -> None:
+    def setPicture(self, arg__1=":/ico/resource/avatar.ico" ) -> None:
         picture = QPixmap(arg__1)
         self.setPixmap(picture)
         self.setScaledContents(True)
