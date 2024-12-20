@@ -41,6 +41,7 @@ class Login(QDialog):
         if username == None or password == None:
             return False
         result = Mysql.select(Mysql.connect(),"login",username=username)
+        # print(result)
         if result == None:
             return False
         else:
