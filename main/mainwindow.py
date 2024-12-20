@@ -75,9 +75,10 @@ class MainWindow(QMainWindow):
                       '马克思基本主义原理':'marketing_studies'}
         try:
             self.a=testpaper(dictionary[self.subject.currentText()],int(self.count.currentText()))
+            self.a.show()
         except:
             QMessageBox.critical(self,"提示","请先登录！",QMessageBox.Ok)
-        self.a.show()
+        
     @Slot(str)
     def setProperty(self,username):
         #print(":/ico/resource/zyy.ico")

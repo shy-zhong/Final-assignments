@@ -71,7 +71,7 @@
   <widget class="QPushButton" name="enter">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>180</y>
      <width>80</width>
      <height>21</height>

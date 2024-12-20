@@ -39,7 +39,7 @@ class Ui_Login(object):
         self.password.setGeometry(QRect(90, 100, 171, 22))
         self.enter = QPushButton(Login)
         self.enter.setObjectName(u"enter")
-        self.enter.setGeometry(QRect(10, 180, 80, 21))
+        self.enter.setGeometry(QRect(30, 180, 80, 21))
         self.cancel = QPushButton(Login)
         self.cancel.setObjectName(u"cancel")
         self.cancel.setGeometry(QRect(210, 180, 80, 21))

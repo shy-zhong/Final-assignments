@@ -19,8 +19,8 @@
   <widget class="QLabel" name="tip1">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>50</y>
+     <x>50</x>
+     <y>30</y>
      <width>31</width>
      <height>21</height>
     </rect>
@@ -32,8 +32,8 @@
   <widget class="QLabel" name="tip2">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>90</y>
+     <x>50</x>
+     <y>70</y>
      <width>31</width>
      <height>21</height>
     </rect>
@@ -45,8 +45,8 @@
   <widget class="QLineEdit" name="username">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>50</y>
+     <x>90</x>
+     <y>30</y>
      <width>171</width>
      <height>22</height>
     </rect>
@@ -58,8 +58,8 @@
   <widget class="QLineEdit" name="password">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>90</y>
+     <x>90</x>
+     <y>70</y>
      <width>171</width>
      <height>22</height>
     </rect>
@@ -68,17 +68,17 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="enter">
+  <widget class="QPushButton" name="regist">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>40</x>
      <y>210</y>
      <width>80</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>登录</string>
+    <string>注册</string>
    </property>
   </widget>
   <widget class="QPushButton" name="cancel">
@@ -97,8 +97,8 @@
   <widget class="QLineEdit" name="password_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>130</y>
+     <x>90</x>
+     <y>110</y>
      <width>171</width>
      <height>22</height>
     </rect>
@@ -107,17 +107,57 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="tip2_2">
+  <widget class="QLabel" name="tip3">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>130</y>
+     <x>20</x>
+     <y>110</y>
      <width>61</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;确认密码&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tip4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>150</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;验证码
+&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="plot">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>150</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="verification_code">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>142</y>
+     <width>80</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

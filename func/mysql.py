@@ -15,7 +15,8 @@ class Mysql:
             host=cls.host,  # MySQL服务器地址
             user="root",   # 用户名
             password=cls.password,  # 密码
-            database="MyData"  # 数据库名称
+            database="MyData",  # 数据库名称
+            autocommit=True
         )
         return db
     @classmethod
@@ -34,7 +35,7 @@ class Mysql:
             cursor.execute(command, (username,))
             return cursor.fetchone()
     @staticmethod
-    def execute(db,command:str)->None:
+    def execute(db:a.Connection,command:str):
         cursor = db.cursor()
         cursor.execute(command)
         return cursor.fetchall()

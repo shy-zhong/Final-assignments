@@ -4,15 +4,16 @@ from PySide6.QtCore import QRect,QCoreApplication,Slot,Signal
 from PySide6.QtGui import QPixmap
 from func.mysql import Mysql
 from main.tools import loginButton
-
+from main.register import Register
 import rc_resource
 
 class Login(QDialog):
 
     LoginOver = Signal(str)
+    registerOver = Signal()
 
     def __init__(self,parent=None):
-        
+        self.parent=parent
         super().__init__(parent)
         self.ui = Ui_Login()
         self.ui.setupUi(self)
@@ -25,6 +26,7 @@ class Login(QDialog):
         self.register.setGeometry(QRect(170, 130, 110, 25))
         self.register.setText(QCoreApplication.translate("Dialog", u"\u6ca1\u6709\u8d26\u53f7\uff1f\u70b9\u51fb\u6ce8\u518c", None))
         self.register.setHoverColor("white")
+        self.register.setFunction(self.__tramsmit__)
 
         self.background.setPixmap(QPixmap(":/background/resource/blue.png"))
         self.background.setScaledContents(True)
@@ -43,6 +45,16 @@ class Login(QDialog):
         else:
             return password == result[1]
     
+    def __tramsmit__(self):
+        u_p = ("","")
+        register = Register(self.parent,self.pos().x(),self.pos().y())
+        self.hide()
+        register.exec()
+        if register.isRegist():
+            u_p = register.returnU_P()
+        self.ui.username.setText(u_p[0])
+        self.ui.password.setText(u_p[1])
+        self.show()
 
     @Slot()
     def Check(self):

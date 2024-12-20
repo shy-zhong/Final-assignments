@@ -31,6 +31,7 @@ class loginButton(Button):
 
         self.hoverColor = "blue"
         self.leaveColor = "black"
+        self.Function = None
 
     def setHoverColor(self,color):
         self.hoverColor = color
@@ -56,6 +57,7 @@ class loginButton(Button):
         self.setPalette(palette)
 
     def leaveEvent(self,event):
+
         super().leaveEvent(event)
 
         if self.isLogin():
@@ -69,13 +71,15 @@ class loginButton(Button):
         palette.setColor(QPalette.ColorRole.WindowText,QColor(self.leaveColor))
         self.setPalette(palette)
 
+    def keyPressEvent(self, event):
+        self.Function()
+        return super().keyPressEvent(event)
 class iconButton(Button):
     def __init__(self,parent=None):
         self.parent = parent
         super().__init__(parent)
         self.setPixmap(QPixmap(":/tool/resource/avatar.png"))
         self.setScaledContents(False)
-
 
     def setPicture(self, arg__1=":/tool/resource/avatar.png" ) -> None:
         picture = QPixmap(arg__1)
