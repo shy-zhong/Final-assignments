@@ -7,7 +7,9 @@ from captcha.image import ImageCaptcha
 import rc_resource
 import numpy as np 
 import random, string
-
+def has_punctuation(s):
+    pattern = re.compile(r'[^\w\s]')
+    return bool(pattern.search(s))
 def pil_image_to_qimage(pil_image):
     """
     将PIL.Image.Image类型的图像转换为QImage类型
@@ -27,7 +29,6 @@ def pil_image_to_qimage(pil_image):
         raise ValueError("不支持的PIL图像模式")
 
 class Register(QDialog):
-
     def __init__(self, parent=None,x = 0,y = 0,module = "register"):
         super().__init__(parent)
 
@@ -60,14 +61,29 @@ class Register(QDialog):
 
     def add(self):
         message =  QMessageBox()
+        if len(self.ui.username.text()) not in range(1,15):
+            message.setIcon(QMessageBox.Critical)
+            message.setText("用户名长度应在1-15之间")
+            message.exec()
+            return
+        if has_punctuation(self.ui.username.text()):
+            message.setIcon(QMessageBox.Critical)
+            message.setText("用户名不能包含特殊字符")
+            message.exec()
+            return
+        if len(self.ui.password.text()) not in range(6,15):
+            message.setIcon(QMessageBox.Critical)
+            message.setText("密码长度应在6-15之间")
+            message.exec()
+            return
+        if self.ui.password_2.text() != self.ui.password.text():
+            message.setIcon(QMessageBox.Critical)
+            message.setText("二次密码不一致")
+            message.exec()
+            return
         if self.ui.plot.text().upper() != self.random_str:
             message.setIcon(QMessageBox.Critical)
             message.setText("验证码错误")
-            message.exec()
-            return
-        if self.ui.password_2.text() == "" or self.ui.password.text() == "":
-            message.setIcon(QMessageBox.Critical)
-            message.setText("二次密码不一致")
             message.exec()
             return
         with Mysql.connect() as db:

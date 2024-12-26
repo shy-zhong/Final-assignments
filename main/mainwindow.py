@@ -64,7 +64,6 @@ class MainWindow(QMainWindow):
         action = QAction("登录账号",self)
         action.triggered.connect(self.enterLogin)
         self.menu.addAction(action)
-        
 
         self.shutcut = QShortcut(Qt.Modifier.CTRL | Qt.Key.Key_S, self)
         self.shutcut.activated.connect(lambda:information().show())
