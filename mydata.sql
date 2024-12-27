@@ -185,8 +185,10 @@ DROP TABLE IF EXISTS `login`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login` (
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL
+  `username` varchar(255) NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `identity` varchar(255) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -196,7 +198,7 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('zyy','123456'),('pxk','ilovesunhongwei');
+INSERT INTO `login` VALUES ('pxk','ilovesunhongwei','0'),('zyy','123456','0');
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -400,4 +402,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-09 14:39:04
+-- Dump completed on 2024-12-27 12:50:29
