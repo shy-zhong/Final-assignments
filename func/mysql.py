@@ -1,7 +1,7 @@
 import pymysql as a
 
 class Mysql:
-    host = "47.97.72.81"
+    host = "139.129.21.42"
     password = "123456"
     dictionary = {
         None:"",
