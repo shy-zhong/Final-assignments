@@ -13,9 +13,9 @@ class Mysql:
     def connect(cls):
         db = a.connect(
             host=cls.host,  # MySQL服务器地址
-            user="root",   # 用户名
+            user="manager",   # 用户名
             password=cls.password,  # 密码
-            database="MyData",  # 数据库名称
+            database="mydata",  # 数据库名称
             autocommit=True
         )
         return db
