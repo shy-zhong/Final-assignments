@@ -2,7 +2,7 @@ import pymysql as a
 
 class Mysql:
     host = "139.129.21.42"
-    password = "123456"
+    password = "ry0XOu-;g*=7"
     dictionary = {
         None:"",
         False:'_single_choice',

@@ -67,7 +67,7 @@ class MainWindow(QMainWindow):
 
         self.shutcut = QShortcut(Qt.Modifier.CTRL | Qt.Key.Key_S, self)
         self.shutcut.activated.connect(lambda:information().show())
-
+        
     @Slot()
     def enterLogin(self):
         login = Login()
@@ -85,10 +85,14 @@ class MainWindow(QMainWindow):
                       '市场营销学':'marketing_studies',
                       '马克思基本主义原理':'marketing_studies'}
         try:
-            self.a=testpaper(dictionary[self.subject.currentText()],int(self.count.currentText()))
-            self.a.show()
-        except:
-            QMessageBox.critical(self,"提示","请先登录！",QMessageBox.Ok)
+            if hasattr(self, 'a') and self.a.isVisible():
+                # 如果 self.a 存在且处于显示状态，不进行任何操作
+                pass
+            else:
+                self.a = testpaper(dictionary[self.subject.currentText()], int(self.count.currentText()))
+                self.a.show()
+        except Exception as e:
+            QMessageBox.critical(self, "提示", str(e), QMessageBox.Ok)
         
     @Slot(str)
     def setProperty(self,username='avatar'):
